@@ -2,7 +2,8 @@
     <div class="header">
         <ul class="list">
             <li class="goBack">
-                <button class="btn1" @click="$router.go(-1)" v-if="path !== '/'"> <</button>
+                <!--                <button class="btn1" @click="$router.go(-1)" v-if="path !== '/'"> <</button>-->
+                <button class="btn1 el-icon-s-unfold" @click="openMenu"></button>
             </li>
             <li class="searchInput">
                 <el-input v-model="searchValue" size="mini"></el-input>
@@ -26,6 +27,9 @@
         methods: {
             search(v) {
                 console.log(v);
+            },
+            openMenu() {
+
             }
         },
         mounted() {
