@@ -1,14 +1,6 @@
 <template>
     <div class="container">
         <vue-header></vue-header>
-        <div>\\\\\\\\\\\\\\\\\\</div>
-        <div>\\\\\\\\\\\\\\\\\\</div>
-        <div>\\\\\\\\\\\\\\\\\\</div>
-        <div>\\\\\\\\\\\\\\\\\\</div>
-        <div>\\\\\\\\\\\\\\\\\\</div>
-        <div>\\\\\\\\\\\\\\\\\\</div>
-        <div>\\\\\\\\\\\\\\\\\\</div>
-        <div>\\\\\\\\\\\\\\\\\\</div>
         <vue-footer></vue-footer>
     </div>
 </template>
