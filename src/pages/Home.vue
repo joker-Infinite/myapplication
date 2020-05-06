@@ -6,8 +6,23 @@
                     ref="scroll">
             <!--轮播-->
             <van-swipe height="150px" :autoplay="1000" @change="Change">
-                <van-swipe-item v-for="(img, index) in images" :key="index">
-                    <img :title="index" :alt="index" class="img" :src="img"/>
+                <!-- <van-swipe-item v-for="(img, index) in images" :key="index">
+                     <img :title="index" :alt="index" class="img" :src="img"/>
+                 </van-swipe-item>-->
+                <van-swipe-item>
+                    <img class="img" src="../assets/img/风景/5d26e07cd1e72f9ff6f5c6ec1b74e6a7.jpg">
+                </van-swipe-item>
+                <van-swipe-item>
+                    <img class="img" src="../assets/img/风景/4661dd417672eec50e23ad26df73775a.jpg">
+                </van-swipe-item>
+                <van-swipe-item>
+                    <img class="img" src="../assets/img/风景/40830db6eb4f928bf7e9f85ca440811d.jpg">
+                </van-swipe-item>
+                <van-swipe-item>
+                    <img class="img" src="../assets/img/风景/4413736927db76c71baf97f0822b1249.jpg">
+                </van-swipe-item>
+                <van-swipe-item>
+                    <img class="img" src="../assets/img/风景/aee11177887cd18c3c493bd72a06c9a6.jpg">
                 </van-swipe-item>
             </van-swipe>
         </vue-scroll>

@@ -12,6 +12,9 @@
                 <button class="btn2" @click="search(searchValue)">搜索</button>
             </li>
         </ul>
+        <van-popup v-model="showMenu" position="left" :style="{ height: '100%' ,width:'50%'}">
+            <div style="width: 100%;height:100px;background: red"></div>
+        </van-popup>
     </div>
 </template>
 
@@ -21,7 +24,8 @@
         data() {
             return {
                 searchValue: "",
-                path: ""
+                path: "",
+                showMenu: false
             }
         },
         methods: {
@@ -29,7 +33,7 @@
                 console.log(v);
             },
             openMenu() {
-
+                this.showMenu = true;
             }
         },
         mounted() {
