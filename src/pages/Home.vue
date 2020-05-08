@@ -25,6 +25,9 @@
                     <img class="img" src="../assets/img/风景/aee11177887cd18c3c493bd72a06c9a6.jpg">
                 </van-swipe-item>
             </van-swipe>
+            <ul class="service">
+                <li class="smollService"></li>
+            </ul>
         </vue-scroll>
         <vue-footer></vue-footer>
     </div>
@@ -65,6 +68,17 @@
         margin: 0;
         padding: 0;
         background: #F5F7FA;
+
+        .service {
+            width: 100%;
+            height: 100px;
+            background: red;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+        }
     }
 
     .Carousel {
