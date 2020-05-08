@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <vue-header></vue-header>
+        <div style="width: 100%;height: 40px"></div>
         <vue-footer></vue-footer>
     </div>
 </template>

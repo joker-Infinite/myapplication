@@ -15,7 +15,7 @@
                 <i class="el-icon-shopping-cart-full i"></i>
                 <p class="p">购物车</p></li>
             <li class="li" @click="goTo('/mine')">
-                <i class="el-icon-setting i"></i>
+                <i class="el-icon-user i"></i>
                 <p class="p">我的</p></li>
         </ul>
     </div>
