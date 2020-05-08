@@ -59,6 +59,18 @@
                 <van-cell icon="underway-o" title="定时关闭"></van-cell>
                 <van-cell icon="flower-o" title="青少年模式"></van-cell>
             </div>
+            <!--设置 退出登录 退出-->
+            <ul class="footerBar">
+                <li class="setting">
+                    <i class="footerBarIcon el-icon-setting"></i>设置
+                </li>
+                <li class="signOut">
+                    <i class="footerBarIcon el-icon-right"></i>退出登录
+                </li>
+                <li class="dropOut">
+                    <i class="footerBarIcon el-icon-switch-button"></i>退出
+                </li>
+            </ul>
         </van-popup>
     </div>
 </template>
@@ -198,6 +210,40 @@
         .moreService {
             width: 100%;
             font-size: 12px;
+        }
+
+        .footerBar {
+            list-style: none;
+            margin-top: 10px;
+            width: 100%;
+            height: 50px;
+            font-size: 16px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            background: #fff;
+
+            .setting {
+                width: 30%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+
+            .signOut {
+                width: 30%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+
+            .dropOut {
+                width: 30%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
         }
     }
 </style>
