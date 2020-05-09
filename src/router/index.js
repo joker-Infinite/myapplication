@@ -15,10 +15,16 @@ const routes = [
         path: '/',
         name: 'home',
         component: home,
+        meta: {
+            requireAuth: true
+        }
     }, {
         path: '/collect',
         name: 'collect',
-        component: collect
+        component: collect,
+        meta: {
+            requireAuth: true
+        }
     }, {
         path: '/shoppingCart',
         name: 'shoppingCart',
@@ -29,7 +35,10 @@ const routes = [
     }, {
         path: '/mine',
         name: 'mine',
-        component: mine
+        component: mine,
+        meta: {
+            requireAuth: true
+        }
     }, {
         path: '/login',
         name: 'login',

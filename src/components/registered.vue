@@ -107,7 +107,13 @@
             registered() {
                 this.$refs.form.validate((valid) => {
                     if (valid) {
-                        this.setCookie(JSON.stringify(this.formData), []);
+                        let t = this.setCookie(this.formData, [], 'registered');
+                        if (t) {
+                            this.$notify({type: 'success', message: '注册成功！'});
+                            this.$router.push('/login');
+                        } else {
+                            this.$notify({type: 'warning', message: '该账户已存在！'});
+                        }
                     }
                 });
             },

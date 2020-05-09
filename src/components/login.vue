@@ -74,11 +74,16 @@
             login() {
                 this.$refs.form.validate((valid) => {
                     if (valid) {
-                        this.getCookie(this.formData, []);
-                        this.$store.commit('actionIncrease', this.formData);
-                        this.$nextTick(_ => {
-                            this.$router.push('/');
-                        })
+                        let t = this.getCookie(this.formData, [], 'login');
+                        if (t) {
+                            this.$notify({type: 'success', message: '欢迎' + this.formData.userAccountNumber + '登录！'});
+                            this.$store.commit('actionIncrease', this.formData);
+                            this.$nextTick(_ => {
+                                this.$router.push('/');
+                            })
+                        } else {
+                            this.$notify({type: 'warning', message: '密码或账号错误！'});
+                        }
                     }
                 });
             },
