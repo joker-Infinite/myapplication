@@ -54,10 +54,18 @@ const router = new VueRouter({
     routes
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+    if (document.cookie) {
+        let userData = JSON.parse(document.cookie.split('=')[1]);
+        userData.forEach(i => {
+            if (i.status === true) {
+                store.commit('actionIncrease', i);
+            }
+        });
+    }
     //这里的requireAuth为路由中定义的 meta:{requireAuth:true}，意思为：该路由添加该字段，表示进入该路由需要登陆的
     if (to.matched.some(r => r.meta.requireAuth)) {
-        if (store.state.user.userAccountNumber && store.state.user.userPassword) {
+        if (store.state.userData.userInfo.userAccountNumber && store.state.userData.userInfo.userPassword) {
             next();
         } else {
             next({
@@ -65,7 +73,11 @@ router.beforeEach((to, from, next) => {
             })
         }
     } else {
-        next();
+        if (store.state.userData.userInfo.userAccountNumber && store.state.userData.userInfo.userPassword) {
+            next('/Home');
+        } else {
+            next()
+        }
     }
     //当路由错误时，进行重定向
     if (to.path == '/') {

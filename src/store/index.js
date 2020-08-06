@@ -5,15 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        user: {
-            userAccountNumber: "",
-            userPassword: ""
+        userData: {
+            //用户信息
+            userInfo: {
+                userAccountNumber: '',
+                userPassword: ''
+            },
+            //用户登录状态(默认false)
+            status: false,
+            //用户操作及浏览记录
+            recording: {}
         }
     },
     mutations: {
-        actionIncrease: (state, msg) => {
-            state.user.userAccountNumber = msg.userAccountNumber;
-            state.user.userPassword = msg.userPassword;
+        actionIncrease: (state, data) => {
+            state.userData = data;
         }
     },
     actions: {},
