@@ -12,7 +12,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: home,
         meta: {
@@ -64,6 +64,12 @@ router.beforeEach((to, from, next) => {
                 path: '/login',
             })
         }
+    } else {
+        next();
+    }
+    //当路由错误时，进行重定向
+    if (to.path == '/') {
+        next({path: '/Home'})
     } else {
         next();
     }

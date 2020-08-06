@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" :style="{height:height,width:width}">
         <vue-header></vue-header>
         <div style="width: 100%;height: 40px"></div>
         <vue-scroll :ops="{bar:{background:'#1f1f1f',opacity:0.1},scrollPanel:{scrollingX:false}}"
@@ -39,12 +39,19 @@
         name: "Home",
         components: {VueFooter, VueHeader, VueScroll},
         data() {
-            return {}
+            return {
+                height: "",
+                width: ""
+            }
         },
         methods: {
             Change(index) {
                 // console.log(index);
             }
+        },
+        mounted() {
+            this.height = window.screen.height + "px";
+            this.width = window.screen.width + "px";
         }
     }
 </script>
