@@ -6,6 +6,7 @@ import shoppingCart from '../pages/ShoppingCart'
 import mine from '../pages/Mine'
 import login from "../components/login";
 import registered from "../components/registered";
+import lookVideo from "../components/lookVideo";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -36,6 +37,13 @@ const routes = [
         path: '/mine',
         name: 'mine',
         component: mine,
+        meta: {
+            requireAuth: true
+        }
+    },  {
+        path: '/lookVideo',
+        name: 'lookVideo',
+        component: lookVideo,
         meta: {
             requireAuth: true
         }

@@ -1,30 +1,26 @@
 <template>
     <div class="container" :style="{height:height,width:width}">
-        <vue-header></vue-header>
-        <div style="width: 100%;height: 40px"></div>
+        <!--        <vue-header></vue-header>-->
+        <!--        <div style="width: 100%;height: 40px"></div>-->
         <vue-scroll :ops="{bar:{background:'#1f1f1f',opacity:0.1},scrollPanel:{scrollingX:false}}"
                     ref="scroll">
             <!--轮播-->
-            <van-swipe height="150px" :autoplay="1000" @change="Change">
-                <van-swipe-item>
-                    <img class="img" src="../assets/img/风景/5d26e07cd1e72f9ff6f5c6ec1b74e6a7.jpg">
-                </van-swipe-item>
-                <van-swipe-item>
-                    <img class="img" src="../assets/img/风景/4661dd417672eec50e23ad26df73775a.jpg">
-                </van-swipe-item>
-                <van-swipe-item>
-                    <img class="img" src="../assets/img/风景/40830db6eb4f928bf7e9f85ca440811d.jpg">
-                </van-swipe-item>
-                <van-swipe-item>
-                    <img class="img" src="../assets/img/风景/4413736927db76c71baf97f0822b1249.jpg">
-                </van-swipe-item>
-                <van-swipe-item>
-                    <img class="img" src="../assets/img/风景/aee11177887cd18c3c493bd72a06c9a6.jpg">
+            <van-swipe height="150px" :autoplay="2000" @change="Change">
+                <van-swipe-item v-for="i in videoDetails">
+                    <van-image fit="cover" :alt="i.descriptionEditor" :title="i.description" :src="i.cover.detail"
+                               height="10rem"></van-image>
                 </van-swipe-item>
             </van-swipe>
-            <ul class="service">
-                <li class="smollService"></li>
-            </ul>
+            <div class="service">
+                <div class="smollService" v-for="i in videoDetails">
+                    <!--                    <iframe :src="i.playUrl"></iframe>-->
+                    <van-image fit="cover" :alt="i.descriptionEditor" :title="i.description" :src="i.cover.detail"
+                               height="10rem"></van-image>
+                    <p class="content_bottom" :title="i.description" @click="openVideo(i)">{{i.description}}</p>
+                    <div class="titleShow">{{i.category}}</div>
+                </div>
+                <div style="height: 50px;width: 100%"></div>
+            </div>
         </vue-scroll>
         <vue-footer></vue-footer>
     </div>
@@ -41,22 +37,40 @@
         data() {
             return {
                 height: "",
-                width: ""
+                width: "",
+                videoDetails: []
             }
         },
         methods: {
             Change(index) {
                 // console.log(index);
+            },
+            openVideo(i) {
+                this.$router.push('/lookVideo?id=' + i.id)
             }
         },
         mounted() {
             this.height = window.screen.height + "px";
             this.width = window.screen.width + "px";
+        },
+        created() {
+            this.axios.get('https://api.apiopen.top/videoRecommend?id=127398').then(r => {
+                let data = r.data.result;
+                this.$store.commit('setDisplayData', data);
+                data.forEach(i => {
+                    this.videoDetails.push(i.data);
+                })
+            })
         }
     }
 </script>
 
 <style scoped lang="less">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
     .container {
         position: fixed;
         width: 100%;
@@ -68,12 +82,45 @@
         .service {
             width: 100%;
             height: 100px;
-            background: red;
-            list-style: none;
             display: flex;
             flex-direction: row;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             justify-content: space-around;
+
+            .smollService {
+                width: 100%;
+                margin: 3px 0;
+                position: relative;
+
+                .content_bottom {
+                    padding: 0 10px;
+                    text-indent: 10px;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    max-height: 40px;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+
+                .content_bottom:hover {
+                    color: #3388dd;
+                }
+
+                .titleShow {
+                    position: absolute;
+                    width: 35px;
+                    height: 25px;
+                    text-align: center;
+                    line-height: 25px;
+                    border: 1px solid #838383;
+                    top: 0;
+                    right: 0;
+                    background-color: rgba(0, 0, 0, .3);
+                    color: white;
+                }
+            }
         }
     }
 

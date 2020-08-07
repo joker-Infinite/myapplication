@@ -15,11 +15,15 @@ export default new Vuex.Store({
             status: false,
             //用户操作及浏览记录
             recording: {}
-        }
+        },
+        displayData: []
     },
     mutations: {
         actionIncrease: (state, data) => {
             state.userData = data;
+        },
+        setDisplayData: (state, data) => {
+            state.displayData = data;
         }
     },
     actions: {},
