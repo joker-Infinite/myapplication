@@ -1,10 +1,9 @@
 <template>
     <div class="header">
         <ul class="list">
-            <li class="goBack">
-                <!--                <button class="btn1" @click="$router.go(-1)" v-if="path !== '/'"> <</button>-->
+           <!-- <li class="goBack">
                 <button class="btn1 el-icon-s-unfold" @click="openMenu"></button>
-            </li>
+            </li>-->
             <li class="searchInput">
                 <el-input v-model="searchValue" size="mini"></el-input>
             </li>
@@ -129,7 +128,7 @@
             }
 
             .searchInput {
-                width: 75%;
+                width: 80%;
                 margin: 6px 0;
             }
 

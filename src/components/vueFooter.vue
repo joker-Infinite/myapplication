@@ -5,16 +5,16 @@
               <router-link to="/collect">收藏</router-link>
               <router-link to="/shoppingCart">购物车</router-link>
               <router-link to="/mine">我的</router-link>-->
-            <li class="li" @click="goTo('/')">
-                <i class="el-icon-house i"></i>
+            <li :class="{'li':true,color:path == '/Home'}" @click="goTo('/Home')">
+                <i class="el-icon-view i"></i>
                 <p class="p">首页</p></li>
-            <li class="li" @click="goTo('/collect')">
+            <li :class="{'li':true,color:path == '/collect'}" @click="goTo('/collect')">
                 <i class="el-icon-star-off i"></i>
                 <p class="p">收藏</p></li>
-            <li class="li" @click="goTo('/shoppingCart')">
-                <i class="el-icon-shopping-cart-full i"></i>
-                <p class="p">购物车</p></li>
-            <li class="li" @click="goTo('/mine')">
+            <li :class="{'li':true,color:path == '/shoppingCart'}" @click="goTo('/shoppingCart')">
+                <i class="el-icon-time i"></i>
+                <p class="p">历史记录</p></li>
+            <li :class="{'li':true,color:path == '/mine'}" @click="goTo('/mine')">
                 <i class="el-icon-user i"></i>
                 <p class="p">我的</p></li>
         </ul>
@@ -69,6 +69,10 @@
                 .p {
                     font-size: 14px;
                 }
+            }
+
+            .color {
+                color: #38d !important;
             }
         }
 

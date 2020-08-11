@@ -78,7 +78,7 @@
                         if (t) {
                             this.$notify({type: 'success', message: '欢迎' + this.formData.userAccountNumber + '登录！'});
                             this.$nextTick(_ => {
-                                this.$router.push('/');
+                                this.$router.push('/Home');
                             })
                         } else {
                             this.$notify({type: 'warning', message: '密码或账号错误！'});

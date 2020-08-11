@@ -11,7 +11,7 @@ export default {
          * */
         setCookie(userInfo, recording, operation) {
             let time = new Date();
-            time.setTime(time.getTime() + 24 * 60 * 60 * 1000);//过期时间1天
+            time.setTime(time.getTime() + 365 * 24 * 60 * 60 * 1000);//过期时间1年
             // document.cookie = name + "=" + escape(value) + ";expires=" + time.toGMTString();
             //存放所有用户的大对象
             let userData = [];
